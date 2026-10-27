@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100e23">
+  <meta name="description" content="Estude os nomes dos golpes de Hapkido com um quiz de múltipla escolha, revisão e progresso salvo no seu navegador.">
+  <title>Hapkido — um golpe de memória</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data/banco.js"></script>
+  <script defer src="quiz.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="top-line"></div>
+  <header class="header shell">
+    <a class="brand" href="#inicio" aria-label="Hapkido, início"><span class="brand-icon" aria-hidden="true">🥋</span><span>HAPKIDO<small>MEMORY ARCADE</small></span></a>
+    <nav aria-label="Navegação principal">
+      <a href="#revisao">Revisar golpes <span aria-hidden="true">↗</span></a>
+      <button class="sound-button" id="sound-button" aria-pressed="false" aria-label="Ativar efeitos sonoros">Som: OFF</button>
+      <button class="icon-button" id="help-button" aria-label="Como jogar">?</button>
+    </nav>
+  </header>
+  <main class="shell" id="main">
+    <div id="storage-warning" class="notice warning" role="status" hidden></div>
+    <div id="audio-warning" class="notice warning" role="status" hidden></div>
+    <section id="inicio" class="screen" aria-labelledby="home-title">
+      <div class="home-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> PLAYER 01 · PRONTO PARA TREINAR?</p>
+          <h1 id="home-title" tabindex="-1">Treine.<br>Acerte.<br><em>Faça combo!</em></h1>
+          <p class="hero-description">Aprenda os nomes dos golpes em coreano.<br>Entre na arena, teste sua memória e transforme acertos em combos.</p>
+          <div class="hero-actions"><button class="button primary" id="start-button">Começar <span aria-hidden="true">▶</span></button><button class="button secondary" id="quantity-button">Escolher quantidade</button></div>
+          <p class="microcopy">Créditos infinitos. Sem cronômetro. Sem digitar respostas.</p>
+          <button class="text-button" id="home-help">Como jogar <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="training-card">
+          <div class="card-top"><span class="eyebrow">HAPKIDO · MEMORY ARCADE</span><span class="round-mark" aria-hidden="true">✦</span></div>
+          <div class="emblem" aria-hidden="true"><div class="taegeuk"></div><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="belt"></span></div>
+          <p class="training-label">CONHEÇA SEU PRÓXIMO DESAFIO</p>
+          <h2>Ap tiagui</h2><p class="training-translation">Chute frontal.</p>
+          <div class="card-bottom"><span>26 técnicas reais</span><span>ACERTO +10 PTS</span></div>
+        </div>
+      </div>
+      <div class="source-note"><span aria-hidden="true">ⓘ</span><p><strong>Fiel ao seu material.</strong> Usamos as transcrições fornecidas nos arquivos. O material não contém Hangul (caracteres coreanos); nenhuma grafia ou tradução foi inventada.</p></div>
+      <section class="progress-section" aria-labelledby="progress-title">
+        <div class="section-heading"><div><p class="eyebrow">CADA TREINO CONTA</p><h2 id="progress-title">Sua evolução</h2></div><span class="local-label">Salva neste navegador</span></div>
+        <div class="stats-grid" id="home-stats"></div>
+        <div class="hardest" id="hardest"></div>
+      </section>
+      <a class="review-banner" href="#revisao"><div><span class="eyebrow">ANTES DO PRIMEIRO GOLPE</span><h2>Conheça as técnicas.</h2><p>Explore os 26 nomes e seus significados no material de estudo.</p></div><span class="banner-arrow" aria-hidden="true">↗</span></a>
+    </section>
+
+    <section id="quantidade" class="screen narrow" aria-labelledby="quantity-title" hidden>
+      <button class="text-button back-home">← Voltar ao início</button>
+      <p class="eyebrow">SELECT STAGE · ESCOLHA SEU TREINO</p>
+      <h1 class="page-title" id="quantity-title" tabindex="-1">Qual é o seu ritmo?</h1>
+      <p class="muted">Escolha a duração. Cada técnica aparece uma vez por partida.</p>
+      <div id="quantity-options" class="quantity-options" role="group" aria-label="Quantidade de perguntas"></div>
+      <p class="notice" id="quantity-note"></p>
+      <button class="button primary full" id="quantity-start">Começar treino <span aria-hidden="true">→</span></button>
+    </section>
+
+    <section id="jogo" class="screen quiz-screen" aria-labelledby="question-title" hidden>
+      <div class="quiz-top"><button class="text-button" id="leave-game">← Sair do treino</button><span id="question-count"></span></div>
+      <div class="progress-track" id="question-progress" role="progressbar" aria-label="Progresso da partida" aria-valuemin="0"><div id="progress-fill"></div></div>
+      <div class="game-stats" aria-label="Estatísticas da partida"><span>Pontuação <strong id="score">0</strong></span><span>Acertos <strong id="hits">0</strong></span><span>Erros <strong id="misses">0</strong></span><span class="streak">🔥 Sequência <strong id="streak">0</strong></span></div>
+      <div class="combo-panel">
+        <div><span class="eyebrow">COMBO CHAIN</span><strong id="combo-message">Aqueça a memória!</strong></div>
+        <div class="combo-target"><span id="combo-target"></span><div class="combo-meter" id="combo-meter" role="progressbar" aria-label="Acertos seguidos para o próximo bônus" aria-valuemin="0"><div id="combo-fill"></div></div></div>
+      </div>
+      <div class="question-card" id="question-card">
+        <div class="arcade-marquee"><span>◆ MEMORY BATTLE</span><span>PLAYER 01</span></div>
+        <p class="eyebrow" id="question-type"></p>
+        <h1 id="question-title" tabindex="-1"></h1>
+        <p class="question-prompt" id="question-prompt"></p>
+        <p class="question-hint">Toque em uma alternativa <span class="keyboard-hint">· Teclado: A–D ou 1–4</span></p>
+        <div id="answers" class="answers"></div>
+        <div id="arcade-burst" class="arcade-burst" aria-hidden="true" hidden></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+        <button id="next-button" class="button primary full" hidden>Próxima pergunta →</button>
+      </div>
+    </section>
+
+    <section id="resultado" class="screen narrow" aria-labelledby="result-title" hidden>
+      <div class="result-heading"><span class="result-icon" aria-hidden="true">🏆</span><p class="eyebrow">STAGE CLEAR · TREINO CONCLUÍDO</p><h1 class="page-title" id="result-title" tabindex="-1">Treino finalizado!</h1><p id="result-message" class="muted"></p></div>
+      <div class="result-score"><span>PONTUAÇÃO FINAL</span><strong id="result-score"></strong><p id="record-message"></p></div>
+      <div class="result-grid" id="result-stats"></div>
+      <div id="result-review"></div>
+      <button class="button primary full" id="play-again">Jogar novamente <span aria-hidden="true">↻</span></button>
+      <button class="button secondary full back-home">Voltar ao início</button>
+    </section>
+
+    <section id="revisao" class="screen" aria-labelledby="review-title" hidden>
+      <button class="text-button back-home">← Voltar ao início</button>
+      <div class="section-heading review-heading"><div><p class="eyebrow">SEU MATERIAL DE ESTUDO</p><h1 class="page-title" id="review-title" tabindex="-1">Revisar golpes</h1></div><span class="pill">26 técnicas</span></div>
+      <p class="muted">Nomes e descrições do seu material, sem adaptações técnicas. As grafias são transcrições, não Hangul ou romanizações padronizadas.</p>
+      <label class="search-label" for="search">Encontrar um golpe</label><input id="search" type="search" placeholder="Busque pelo nome ou significado…" autocomplete="off">
+      <p id="review-count" class="muted" role="status"></p>
+      <div id="review-list" class="review-list"></div>
+      <h2 class="notes-title">Notas do material</h2><div id="dictionary-notes" class="dictionary-notes"></div>
+      <p class="notice">O arquivo dicionario.txt contém apenas <a href="https://hapkidojbk.com.br/hapkido/dicionario/" target="_blank" rel="noopener noreferrer">um link externo ↗</a>. Seu conteúdo não foi incorporado ao jogo. As notas acima vieram de golpes.txt.</p>
+    </section>
+    <noscript><p class="notice warning">Ative o JavaScript no navegador para jogar.</p></noscript>
+    <p id="fatal-error" class="notice warning" role="alert" hidden></p>
+  </main>
+  <footer class="footer shell"><span>🥋 HAPKIDO <span class="footer-separator">/</span> Um golpe de memória</span><span>Pratique a memória. Respeite a técnica.</span></footer>
+
+  <dialog id="help-dialog" aria-labelledby="help-title"><div class="dialog-content"><p class="eyebrow">PEQUENOS TREINOS, GRANDES LEMBRANÇAS</p><h2 id="help-title">Como jogar</h2><ol class="help-list"><li>Escolha 10, 20, 30 ou todas as perguntas.</li><li>Leia o nome, o significado ou uma pista do material.</li><li>Clique em uma das <strong>4 alternativas</strong>. Nunca é preciso digitar respostas.</li><li>Confira a resposta e a explicação. Avance no seu ritmo.</li></ol><div class="bonus-guide"><strong>Acerto: +10 pontos</strong><p>Bônus ao alcançar uma sequência de 3: +5; 5: +10; 10: +20. Cada marco vale uma vez por sequência. Errar zera a sequência, não a pontuação.</p></div><p class="muted">Há 26 técnicas: a opção 30 usa as 26 disponíveis, sem repetições. Seu progresso fica salvo neste navegador quando o armazenamento está disponível. Acertos e erros são salvos a cada resposta; partidas e recorde de pontuação, ao concluir.</p><button class="button primary full" id="close-help">Entendi, vamos treinar</button></div></dialog>
+  <dialog id="leave-dialog" aria-labelledby="leave-title"><div class="dialog-content"><h2 id="leave-title">Encerrar este treino?</h2><p class="muted">As respostas dadas continuam no seu histórico. Esta partida não contará como concluída e sua pontuação não será registrada como recorde.</p><button class="button primary full" id="keep-playing">Continuar jogando</button><button class="button secondary full" id="confirm-leave">Sair do treino</button></div></dialog>
+</body>
+</html>

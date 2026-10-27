@@ -1,0 +1,184 @@
+// Gerado por tools/prepare-data.mjs. Edite os arquivos JSON de origem.
+globalThis.HAPKIDO_DATA = {
+  "golpes": [
+    {
+      "id": "miro-po-terigui",
+      "romanizacao": "Miro pô terigui",
+      "traducao": "(jab e direto) mão da frente, mão de trás."
+    },
+    {
+      "id": "apal-poterigui",
+      "romanizacao": "Apal poterigui",
+      "traducao": "jab, soco apenas mão da frente."
+    },
+    {
+      "id": "dut-poterigui",
+      "romanizacao": "Dut poterigui",
+      "traducao": "direto, soco apenas da mão de trás."
+    },
+    {
+      "id": "tolio-po-terigui",
+      "romanizacao": "Tolio pô terigui",
+      "traducao": "Cruzado."
+    },
+    {
+      "id": "oligui-po-terigui",
+      "romanizacao": "Oligui pô terigui",
+      "traducao": "Gancho."
+    },
+    {
+      "id": "mondura-poterigui",
+      "romanizacao": "Mondurá poterigui",
+      "traducao": "Soco giratório."
+    },
+    {
+      "id": "pakumchi",
+      "romanizacao": "Pakumchi",
+      "traducao": "Cotovelada."
+    },
+    {
+      "id": "ap-tiagui",
+      "romanizacao": "Ap tiagui",
+      "traducao": "Chute frontal."
+    },
+    {
+      "id": "miro-tiagui",
+      "romanizacao": "Miro tiagui",
+      "traducao": "Empurrar com a sola do pé."
+    },
+    {
+      "id": "tolio-tiagui",
+      "romanizacao": "Tolio tiagui",
+      "traducao": "Chute lateral com a canela atingido o alvo de cima para baixo."
+    },
+    {
+      "id": "yopi-tiagui",
+      "romanizacao": "Yopi tiagui",
+      "traducao": "Chute lateral com a faca do pé."
+    },
+    {
+      "id": "ant-tiagui",
+      "romanizacao": "Ant tiagui",
+      "traducao": "Circular de fora para dentro."
+    },
+    {
+      "id": "bacat-tiagui",
+      "romanizacao": "Bacat tiagui",
+      "traducao": "Circular de dentro para fora."
+    },
+    {
+      "id": "oligui-diconti",
+      "romanizacao": "Oligui diconti",
+      "traducao": "Chute batendo com o calcanhar na clavícula."
+    },
+    {
+      "id": "dut-tiagui",
+      "romanizacao": "Dut tiagui",
+      "traducao": "Chute para trás."
+    },
+    {
+      "id": "morupi-terigui",
+      "romanizacao": "Morupi terigui",
+      "traducao": "Joelhada"
+    },
+    {
+      "id": "api-napop",
+      "romanizacao": "Api Napop",
+      "traducao": "Rolamento para frente."
+    },
+    {
+      "id": "dut-napop",
+      "romanizacao": "Dut Napop",
+      "traducao": "Rolamento para trás."
+    },
+    {
+      "id": "ruban-napop",
+      "romanizacao": "Ruban Napop",
+      "traducao": "Saltar com as costas no chão."
+    },
+    {
+      "id": "tsuban-napop",
+      "romanizacao": "Tsuban/Tthuban Napop",
+      "traducao": "Cair para frente em prancha."
+    },
+    {
+      "id": "napop-dari",
+      "romanizacao": "Napop dari",
+      "traducao": "Rolamento para frente caindo com a perna de trás esticada."
+    },
+    {
+      "id": "timo-tiagui",
+      "romanizacao": "Timo tiagui",
+      "traducao": "Joelho da frente sobe, em seguida com um salto, chuta em ap tiagui no ar."
+    },
+    {
+      "id": "pituro-tiagui",
+      "romanizacao": "Piturô tiagui",
+      "traducao": "golpe batendo com a sola do pé na cara."
+    },
+    {
+      "id": "handan-pande-tiagui",
+      "romanizacao": "Handan Pandê tiagui",
+      "traducao": "Rasteira com a perna esticada usando o outro joelho como pivô."
+    },
+    {
+      "id": "pande-tiagui",
+      "romanizacao": "Pandê tiagui",
+      "traducao": "chute giratório com a sola do pé atingindo o corpo do oponente."
+    },
+    {
+      "id": "huryo-tiagui",
+      "romanizacao": "Huryô ou Fúrio tiagui",
+      "traducao": "chute na linha do joelho com o calcanhar."
+    }
+  ],
+  "dicionario": {
+    "fonte": "golpes.txt",
+    "observacao": "Os nomes são transcrições fornecidas pelo material, não romanizações padronizadas. Não há Hangul nos arquivos. Traduções e descrições são apresentadas como no material, sem validação técnica externa.",
+    "referenciaExterna": {
+      "arquivo": "dicionario.txt",
+      "url": "https://hapkidojbk.com.br/hapkido/dicionario/",
+      "consultada": false,
+      "observacao": "O arquivo contém somente um endereço. O conteúdo da página não foi incorporado: acesso indisponível durante a preparação."
+    },
+    "notas": [
+      {
+        "termo": "Ap",
+        "explicacao": "remete à frente ou mão/perna da frente",
+        "exemplosOriginais": [
+          "Ap tiagui",
+          "Ap Nopop"
+        ],
+        "golpes": [
+          "ap-tiagui",
+          "api-napop"
+        ]
+      },
+      {
+        "termo": "Dut",
+        "explicacao": "remete à para trás ou perna/mão de trás",
+        "exemplosOriginais": [
+          "Dut tiagui",
+          "Dut napop"
+        ],
+        "golpes": [
+          "dut-tiagui",
+          "dut-napop",
+          "dut-poterigui"
+        ]
+      },
+      {
+        "termo": "Toliô",
+        "explicacao": "um golpe cruzado",
+        "exemplosOriginais": [
+          "Tôlio pô terigui",
+          "Tôlio tiagui"
+        ],
+        "golpes": [
+          "tolio-po-terigui",
+          "tolio-tiagui"
+        ]
+      }
+    ]
+  }
+};

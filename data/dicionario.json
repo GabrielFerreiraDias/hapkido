@@ -1,0 +1,15 @@
+{
+  "fonte": "golpes.txt",
+  "observacao": "Os nomes são transcrições fornecidas pelo material, não romanizações padronizadas. Não há Hangul nos arquivos. Traduções e descrições são apresentadas como no material, sem validação técnica externa.",
+  "referenciaExterna": {
+    "arquivo": "dicionario.txt",
+    "url": "https://hapkidojbk.com.br/hapkido/dicionario/",
+    "consultada": false,
+    "observacao": "O arquivo contém somente um endereço. O conteúdo da página não foi incorporado: acesso indisponível durante a preparação."
+  },
+  "notas": [
+    {"termo":"Ap","explicacao":"remete à frente ou mão/perna da frente","exemplosOriginais":["Ap tiagui","Ap Nopop"],"golpes":["ap-tiagui","api-napop"]},
+    {"termo":"Dut","explicacao":"remete à para trás ou perna/mão de trás","exemplosOriginais":["Dut tiagui","Dut napop"],"golpes":["dut-tiagui","dut-napop","dut-poterigui"]},
+    {"termo":"Toliô","explicacao":"um golpe cruzado","exemplosOriginais":["Tôlio pô terigui","Tôlio tiagui"],"golpes":["tolio-po-terigui","tolio-tiagui"]}
+  ]
+}
